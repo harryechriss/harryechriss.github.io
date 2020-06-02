@@ -12,7 +12,7 @@
 <!-- Event snippet for Tealium Dev Click Lead conversion page
 In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
 <script>
-function gtag_report_conversion(url) {
+function gtag_report_conversion_click(url) {
   var callback = function () {
     if (typeof(url) != 'undefined') {
       window.location = url;
@@ -26,8 +26,26 @@ function gtag_report_conversion(url) {
 }
 </script>
 
+ <!-- Event snippet for Tealium Dev Phone Call Lead conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion_call(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-876416974/Tb8sCMXZ_dEBEM6f9KED',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+ 
 </head>
 <body>
- V1.3
-  <button onclick="gtag_report_conversion()" type="button">Send Click</button>
+ V1.4<br>
+  <button onclick="gtag_report_conversion_click()" type="button">Send Click</button><br>
+  <button onclick="gtag_report_conversion_call()" type="button">Send Call</button><br>
 </body>
